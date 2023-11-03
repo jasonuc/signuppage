@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inconsolata': ['Inconsolata', 'monospace', 'ui-sans'],
+        'kanit': ['Kanit', 'ui-sans']
+      }
+    },
   },
   plugins: [],
 }
