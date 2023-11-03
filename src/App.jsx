@@ -26,7 +26,7 @@ function App() {
   return (
     <div className=" h-screen bg-background text-text flex flex-col items-center">
       <Header />
-      <Signup setSignedIn={setSignedIn} userInput={userInput} setUserInput={setUserInput} handleSubmit={handleSubmit} />
+      <Signup signedIn={signedIn} setSignedIn={setSignedIn} userInput={userInput} setUserInput={setUserInput} handleSubmit={handleSubmit} />
       {signedIn ? <p className="w-[35%] text-secondary text-center mt-6 text-xl font-bold font-kanit">This User has signed in</p> : <p className="w-[35%] text-accent text-center mt-6 text-xl font-bold font-kanit">This User has not signed in</p>}
     </div>
   )
