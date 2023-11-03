@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Signup from "./components/SignUp";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 const auth = getAuth();
 
@@ -11,8 +11,10 @@ function App() {
   const [userInput, setUserInput] = useState({})
 
   const handleSubmit = () => {
-    createUserWithEmailAndPassword(auth, userInput.email, userInput.password)
+    // createUserWithEmailAndPassword(auth, userInput.email, userInput.password)
+    signInWithEmailAndPassword(auth, userInput.email, userInput.password)
       .then(userCredentials => {
+        setSignedIn(true);
         console.log(userCredentials);
         alert('Sign up Successful!')
       }).catch(({ code, message }) => {
@@ -22,10 +24,10 @@ function App() {
   }
 
   return (
-    <div className=" h-screen bg-YourPink flex flex-col items-center">
+    <div className=" h-screen bg-background text-text flex flex-col items-center">
       <Header />
       <Signup setSignedIn={setSignedIn} userInput={userInput} setUserInput={setUserInput} handleSubmit={handleSubmit} />
-      {signedIn && <p>This User is signed in</p>}
+      {signedIn ? <p className="w-[35%] text-secondary text-center mt-6 text-xl font-bold font-kanit">This User has signed in</p> : <p className="w-[35%] text-accent text-center mt-6 text-xl font-bold font-kanit">This User has not signed in</p>}
     </div>
   )
 }
