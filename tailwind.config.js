@@ -9,6 +9,11 @@ export default {
       fontFamily: {
         'inconsolata': ['Inconsolata', 'monospace', 'ui-sans'],
         'kanit': ['Kanit', 'ui-sans']
+      },
+      colors: {
+        'YourPink': "#FFC2C3",
+        'Bittersweet': "#FE7773",
+        'AlizarinCrimson': "#EA3238"
       }
     },
   },
